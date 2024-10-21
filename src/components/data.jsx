@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Table, Button, Input, Form, Space } from "antd";
+import { Table, Button, Input, Form, Space, Modal } from "antd";
 import { FaEdit } from "react-icons/fa";
 
 const Data = () => {
@@ -79,7 +79,7 @@ const Data = () => {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ data: [values] }), // Use form values directly
+          body: JSON.stringify({ data: [values] }),
         }
       );
 
@@ -94,7 +94,8 @@ const Data = () => {
       const updatedResult = await updatedResponse.json();
       setDataList(updatedResult);
 
-      form.resetFields(); // Reset form fields after adding item
+      form.resetFields();
+      setShowForm(false);
     } catch (error) {
       setError(error.message);
     }
@@ -189,15 +190,16 @@ const Data = () => {
         <p>No data available.</p>
       )}
 
-      <Button
-        onClick={() => setShowForm(!showForm)}
-        type="primary"
-        className="mt-4"
-      >
-        {showForm ? "Cancel" : "Add New Item"}
+      <Button onClick={() => setShowForm(true)} type="primary" className="mt-4">
+        Add New Item
       </Button>
 
-      {showForm && (
+      <Modal
+        title="Add New Item"
+        visible={showForm}
+        onCancel={() => setShowForm(false)}
+        footer={null}
+      >
         <Form form={form} layout="vertical" onFinish={handleAddItem}>
           {fields.map((field) => (
             <Form.Item
@@ -221,7 +223,7 @@ const Data = () => {
             </Button>
           </Form.Item>
         </Form>
-      )}
+      </Modal>
     </div>
   );
 };

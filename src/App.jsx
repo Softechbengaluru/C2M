@@ -9,6 +9,7 @@ import {
   Settings,
   SquareArrowOutUpRight,
 } from "lucide-react";
+import { FiTerminal } from "react-icons/fi";
 import { Separator } from "./components/ui/separator";
 import CustomModal from "./components/CustomModal";
 import CreateCollectionModal from "./components/CreateCollectionModal";
@@ -17,6 +18,7 @@ import TableStructure from "./components/table";
 import CreateContent from "./components/create-content";
 import Data from "./components/data";
 import DeleteContent from "./components/delete-content";
+import QueryEditor from "./components/QueryEditor";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 
 const sortedExperiences = [
@@ -400,6 +402,15 @@ const App = () => {
                     </Link>
                     {!sidebarOpen && <p>Delete Content</p>}
                   </li>
+                  <li className="flex items-center gap-4">
+                    <Link
+                      to="/query"
+                      className="hover:fill-blue-500 w-fit hover:text-white hover:bg-blue-500 p-2 rounded"
+                    >
+                      <FiTerminal size={18} />
+                    </Link>
+                    {!sidebarOpen && <p>Query</p>}
+                  </li>
                 </ul>
               </div>
             </div>
@@ -414,6 +425,7 @@ const App = () => {
           <Route path="/show-content" element={<ShowContent />} />
           <Route path="/table-structure" element={<TableStructure />} />
           <Route path="/delete-content" element={<DeleteContent />} />
+          <Route path="/query" element={<QueryEditor />} />
         </Routes>
       </div>
       <CreateCollectionModal
