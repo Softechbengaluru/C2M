@@ -437,7 +437,7 @@ const App = () => {
           <Route path="/table-structure" element={<TableStructure />} />
           <Route path="/delete-content" element={<DeleteContent />} />
           <Route path="/query" element={<QueryEditor />} />
-          <Route path="/chart" element={<Chart />} />
+          <Route path="/charts" element={<Chart />} />
         </Routes>
       </div>
       <CreateCollectionModal
