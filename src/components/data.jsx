@@ -19,7 +19,7 @@ const Data = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `http://localhost:3000/items/content/${selectedContent}`
+          `https://c2m-backend.onrender.com/items/content/${selectedContent}`
         );
 
         if (!response.ok) {
@@ -42,7 +42,7 @@ const Data = () => {
     const fetchDynamicFields = async () => {
       try {
         const response = await fetch(
-          `http://localhost:3000/fields/${selectedContent}`
+          `https://c2m-backend.onrender.com/fields/${selectedContent}`
         );
 
         if (!response.ok) {
@@ -73,7 +73,7 @@ const Data = () => {
   const handleAddItem = async (values) => {
     try {
       const response = await fetch(
-        `http://localhost:3000/items/${selectedContent}`,
+        `https://c2m-backend.onrender.com/items/${selectedContent}`,
         {
           method: "POST",
           headers: {
@@ -88,7 +88,7 @@ const Data = () => {
       }
 
       const updatedResponse = await fetch(
-        `http://localhost:3000/items/content/${selectedContent}`
+        `https://c2m-backend.onrender.com/items/content/${selectedContent}`
       );
 
       const updatedResult = await updatedResponse.json();
@@ -110,7 +110,7 @@ const Data = () => {
   const handleSaveEdit = async () => {
     try {
       const response = await fetch(
-        `http://localhost:3000/items/${selectedContent}/${editingItem}`,
+        `https://c2m-backend.onrender.com/items/${selectedContent}/${editingItem}`,
         {
           method: "PUT",
           headers: {
@@ -125,7 +125,7 @@ const Data = () => {
       }
 
       const updatedResponse = await fetch(
-        `http://localhost:3000/items/content/${selectedContent}`
+        `https://c2m-backend.onrender.com/items/content/${selectedContent}`
       );
       const updatedResult = await updatedResponse.json();
       setDataList(updatedResult);

@@ -26,7 +26,7 @@ const QueryEditor = () => {
       // Handle count queries
       if (normalizedQuery.startsWith("select count(*)")) {
         response = await fetch(
-          `http://localhost:3000/query/count/${selectedContent}`, // Count endpoint
+          `https://c2m-backend.onrender.com/query/count/${selectedContent}`, // Count endpoint
           {
             method: "POST",
             headers: {
@@ -42,7 +42,7 @@ const QueryEditor = () => {
         const filter = whereClause ? whereClause[1].trim() : null;
 
         response = await fetch(
-          `http://localhost:3000/query/${selectedContent}`,
+          `https://c2m-backend.onrender.com/query/${selectedContent}`,
           {
             method: "POST",
             headers: {

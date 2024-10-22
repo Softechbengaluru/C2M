@@ -22,13 +22,16 @@ const CreateCollectionModal = ({ isOpen, onClose }) => {
     };
 
     try {
-      const response = await fetch("http://localhost:3000/create-collection", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(payload),
-      });
+      const response = await fetch(
+        "https://c2m-backend.onrender.com/create-collection",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(payload),
+        }
+      );
 
       if (!response.ok) {
         throw new Error("Network response was not ok");

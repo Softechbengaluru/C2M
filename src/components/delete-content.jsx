@@ -8,7 +8,9 @@ const DeleteContent = () => {
   // Function to fetch collections from the server
   const fetchContent = async () => {
     try {
-      const response = await fetch("http://localhost:3000/collections");
+      const response = await fetch(
+        "https://c2m-backend.onrender.com/collections"
+      );
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }
@@ -30,7 +32,7 @@ const DeleteContent = () => {
     try {
       const trimmedContent = content.trim(); // Trim whitespace
       const response = await fetch(
-        `http://localhost:3000/collections/${trimmedContent}`,
+        `https://c2m-backend.onrender.com/collections/${trimmedContent}`,
         {
           method: "DELETE",
         }

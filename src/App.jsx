@@ -9,6 +9,7 @@ import {
   Settings,
   SquareArrowOutUpRight,
 } from "lucide-react";
+import { BiBarChart } from "react-icons/bi";
 import { FiTerminal } from "react-icons/fi";
 import { Separator } from "./components/ui/separator";
 import CustomModal from "./components/CustomModal";
@@ -19,6 +20,7 @@ import CreateContent from "./components/create-content";
 import Data from "./components/data";
 import DeleteContent from "./components/delete-content";
 import QueryEditor from "./components/QueryEditor";
+import Chart from "./components/chart";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 
 const sortedExperiences = [
@@ -411,6 +413,15 @@ const App = () => {
                     </Link>
                     {!sidebarOpen && <p>Query</p>}
                   </li>
+                  <li className="flex items-center gap-4">
+                    <Link
+                      to="/chart"
+                      className="hover:fill-blue-500 w-fit hover:text-white hover:bg-blue-500 p-2 rounded"
+                    >
+                      <BiBarChart size={18} />
+                    </Link>
+                    {!sidebarOpen && <p>Charts</p>}
+                  </li>
                 </ul>
               </div>
             </div>
@@ -426,6 +437,7 @@ const App = () => {
           <Route path="/table-structure" element={<TableStructure />} />
           <Route path="/delete-content" element={<DeleteContent />} />
           <Route path="/query" element={<QueryEditor />} />
+          <Route path="/chart" element={<Chart />} />
         </Routes>
       </div>
       <CreateCollectionModal
